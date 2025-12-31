@@ -13,13 +13,16 @@
     <div class="container">
         <h1>Ma Todo List</h1>
 
-        <input type="text" id="taskInput" placeholder="Nouvelle tâche">
-        <button onclick="addTask()">Ajouter</button>
+       <form onsubmit="addTask(event)">
+    <input type="text" id="taskInput" placeholder="Nouvelle tâche">
+    <button type="submit">Ajouter</button>
+</form>
 
-        <ul id="taskList"></ul>
-    </div>
+<ul id="taskList"></ul>
+ 
 
 <script src="script.js"></script>
+
 
 
 
