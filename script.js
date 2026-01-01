@@ -1,10 +1,6 @@
-function saveTasks() {
-  localStorage.setItem("tasks", document.getElementById("taskList").innerHTML);
+function updateCounter() {
+  const tasks = document.querySelectorAll("#taskList li");
+  const done = document.querySelectorAll("#taskList li.done");
+  document.getElementById("counter").textContent =
+    (tasks.length - done.length) + " tâche(s) restante(s)";
 }
-document.getElementById("taskList").innerHTML =
-  localStorage.getItem("tasks") || "";
-saveTasks();
-const date = new Date().toLocaleDateString();
-li.textContent = input.value + " (" + date + ")";
-
-
