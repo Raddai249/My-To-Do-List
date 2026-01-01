@@ -1,76 +1,8 @@
-body {
-    font-family: Arial, sans-serif;
-    background: #f2f2f2;
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
-    transition: background 0.3s;
-}
-
-.container {
-    background: white;
-    padding: 20px;
-    width: 320px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-h1 {
-    text-align: center;
-}
-
-.input-group {
-    display: flex;
-    gap: 5px;
-}
-
-input {
-    flex: 1;
-    padding: 8px;
-}
-
-button {
-    padding: 8px;
-    cursor: pointer;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 15px;
-}
-
 li {
-    background: #eee;
-    padding: 8px;
-    margin-bottom: 8px;
-    display: flex;
-    justify-content: space-between;
-    border-radius: 5px;
+  transition: all 0.3s ease;
 }
 
-li.done {
-    text-decoration: line-through;
-    color: gray;
+li:hover {
+  transform: scale(1.02);
 }
 
-.delete {
-    background: red;
-    color: white;
-    border: none;
-    border-radius: 4px;
-}
-
-/* 🌙 MODE SOMBRE */
-body.dark {
-    background: #121212;
-}
-
-body.dark .container {
-    background: #1e1e1e;
-    color: white;
-}
-
-body.dark li {
-    background: #333;
-}
