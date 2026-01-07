@@ -1,34 +1,36 @@
-// Charger les tâches au démarrage
 document.addEventListener("DOMContentLoaded", loadTasks);
 
 function addTask(text = null, done = false) {
   const input = document.getElementById("taskInput");
   const taskText = text ?? input.value.trim();
 
-  if (taskText === "") return;
+  if (taskText === "") {
+    alert("Écris une tâche !");
+    return;
+  }
 
   const li = document.createElement("li");
-  li.textContent = taskText;
 
-  if (done) li.classList.add("done");
+  const span = document.createElement("span");
+  span.textContent = taskText;
 
-  // Marquer comme terminée
-  li.addEventListener("click", () => {
-    li.classList.toggle("done");
+  if (done) span.classList.add("done");
+
+  span.onclick = () => {
+    span.classList.toggle("done");
     saveTasks();
     updateCounter();
-  });
+  };
 
-  // Bouton supprimer
   const deleteBtn = document.createElement("button");
   deleteBtn.textContent = "❌";
-  deleteBtn.onclick = (e) => {
-    e.stopPropagation(); // empêche le toggle done
+  deleteBtn.onclick = () => {
     li.remove();
     saveTasks();
     updateCounter();
   };
 
+  li.appendChild(span);
   li.appendChild(deleteBtn);
   document.getElementById("taskList").appendChild(li);
 
@@ -37,27 +39,24 @@ function addTask(text = null, done = false) {
   updateCounter();
 }
 
-// Compteur
 function updateCounter() {
-  const tasks = document.querySelectorAll("#taskList li");
-  const done = document.querySelectorAll("#taskList li.done");
+  const total = document.querySelectorAll("#taskList li").length;
+  const done = document.querySelectorAll(".done").length;
   document.getElementById("counter").textContent =
-    `${done.length} / ${tasks.length} tâche(s) terminée(s)`;
+    `${done} / ${total} tâche(s) terminée(s)`;
 }
 
-// Sauvegarde
 function saveTasks() {
   const tasks = [];
   document.querySelectorAll("#taskList li").forEach(li => {
     tasks.push({
-      text: li.firstChild.textContent,
-      done: li.classList.contains("done")
+      text: li.querySelector("span").textContent,
+      done: li.querySelector("span").classList.contains("done")
     });
   });
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
-// Chargement
 function loadTasks() {
   const saved = JSON.parse(localStorage.getItem("tasks")) || [];
   saved.forEach(task => addTask(task.text, task.done));
