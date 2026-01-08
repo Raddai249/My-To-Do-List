@@ -78,6 +78,31 @@ li.done {
   padding: 6px 10px;
 }
 
+/* MODE SOMBRE */
+body.dark {
+  background-color: #111;
+  color: #f1f1f1;
+}
+
+body.dark .container {
+  background: #1e1e1e;
+}
+
+body.dark input {
+  background: #333;
+  color: white;
+  border: 1px solid #555;
+}
+
+body.dark li {
+  background: #2a2a2a;
+}
+
+body.dark button {
+  background: #444;
+  color: white;
+}
+
 .delete-btn:hover {
   background: #b91c1c;
 }
