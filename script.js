@@ -78,6 +78,26 @@ function addTask() {
   updateCounter();
 }
 
+const themeBtn = document.getElementById("themeToggle");
+
+// charger le thème sauvegardé
+if (localStorage.getItem("theme") === "dark") {
+  document.body.classList.add("dark");
+  themeBtn.textContent = "☀️ Mode clair";
+}
+
+themeBtn.onclick = () => {
+  document.body.classList.toggle("dark");
+
+  if (document.body.classList.contains("dark")) {
+    localStorage.setItem("theme", "dark");
+    themeBtn.textContent = "☀️ Mode clair";
+  } else {
+    localStorage.setItem("theme", "light");
+    themeBtn.textContent = "🌙 Mode sombre";
+  }
+};
+
 function updateCounter() {
   const total = document.querySelectorAll("#taskList li").length;
   const done = document.querySelectorAll(".done").length;
