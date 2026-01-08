@@ -87,3 +87,12 @@ li.done {
   margin-top: 10px;
   font-weight: bold;
 }
+
+li span {
+  flex: 1;
+}
+
+li button {
+  margin-left: 6px;
+  font-size: 16px;
+}
