@@ -121,3 +121,30 @@ li button {
   margin-left: 6px;
   font-size: 16px;
 }
+/* ===== MODE SOMBRE ===== */
+body.dark {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark .container {
+  background-color: #1e1e1e;
+  box-shadow: none;
+}
+
+body.dark input {
+  background-color: #2c2c2c;
+  color: white;
+  border: 1px solid #444;
+}
+
+body.dark button {
+  background-color: #3b82f6;
+  color: white;
+}
+
+body.dark li {
+  background-color: #2c2c2c;
+  color: white;
+}
+
