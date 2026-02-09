@@ -20,26 +20,16 @@ addBtn.addEventListener("click", () => {
   const span = document.createElement("span");
   span.textContent = taskText;
 
-  // bouton supprimer
-  const deleteBtn = document.createElement("button");
-  deleteBtn.textContent = "❌";
-  deleteBtn.style.marginLeft = "10px";
+ deleteBtn.onclick = () => {
+  li.classList.add("remove");
 
-  deleteBtn.addEventListener("click", () => {
+  setTimeout(() => {
     li.remove();
-    count--;
-    counter.textContent = count + " tâche(s)";
-  });
+    saveTasks();
+    updateCounter();
+  }, 300);
+};
 
-  li.appendChild(span);
-  li.appendChild(deleteBtn);
-  taskList.appendChild(li);
-
-  input.value = "";
-  count++;
-  counter.textContent = count + " tâche(s)";
-});
-const darkModeBtn = document.getElementById("darkModeBtn");
 
 // Activer / désactiver le mode sombre
 darkModeBtn.addEventListener("click", () => {
